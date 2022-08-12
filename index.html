@@ -11,15 +11,15 @@
 <body>
 
     <div id="calculator-body">
-        <div id="screen"></div>
+        <div id="screen"><p id="display-value"></p></div>
         <div id="buttons">
             <div id="numbers"></div>
             <div id="operators">
-                <button id="add">+</button>
-                <button id="sub">-</button>
-                <button id="divide">/</button>
-                <button id="mult">x</button>
-                <button id="=">=</button>
+                <button id="add" onclick="push_op('+')">+</button>
+                <button id="sub" onclick="push_op('-')">-</button>
+                <button id="divide" onclick="push_op('/')">/</button>
+                <button id="mult" onclick="push_op('*')">x</button>
+                <button id="=" onclick="evaluate_expression()">=</button>
             </div>
         </div>
     </div>

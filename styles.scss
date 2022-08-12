@@ -26,6 +26,15 @@ body {
     width: 90%;
     height: 100px;
     background-color: antiquewhite;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#display-value {
+    font-size: 36px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #buttons {
