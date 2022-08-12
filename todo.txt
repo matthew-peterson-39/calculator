@@ -1,0 +1,5 @@
+-allow for more complicate functions
+-fix bug that doesnt allow for the answer to be used with another operator
+    ie. 1 + 1 = 2 + 3 = 5
+-Refactor code
+-Improve CSS design
