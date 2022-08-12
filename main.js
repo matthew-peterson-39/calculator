@@ -1,5 +1,7 @@
 const btn = document.querySelector('#numbers');
-const display_value = document.querySelector('#display-value');
+const display = document.querySelector('#display-value');
+const display_value = display.innerText;
+
 var first_number;
 const expression = [];
 const number_arr = [];
@@ -14,23 +16,43 @@ function generate_buttons() {
         num.onclick = function () {
             const num_int = +num.id;
             number_arr.push(num_int);
+            update_display();
         };
     };
 };
 
+function start_display() {
+    display.innerText = 0;
+    return;
+}
+
+function update_display() {
+    let current = number_arr.join("");
+    current = +current;
+    display.innerText = current;
+    return;
+}
+
+function clear_display() {
+    display.innerText = 0;
+};
+
 function push_op(operator_to_add) {
-    if (number_arr == null) {console.log('No numbers found.'); return;}
+    if (number_arr == null) {alert('No numbers found.'); return;}
 
     operator_arr.push(operator_to_add);
-    number = number_arr.join("");
+    let number = number_arr.join("");
     number_arr.splice(0, number_arr.length);   //clear existing array
     number = +number;    //make int value
     expression.push(number);   //add number to expression array
 };
 
 function add() { 
-   console.log(expression[0] + expression[1]);
-   return;
+    let result = expression[0] + expression[1];
+    display_answer(result);
+    clear_arrays();
+    expression.push(result);
+    return;
 };
 
 function sub() {
@@ -45,12 +67,18 @@ function mult(){
 
 function div() {
     if (expression[1] == 0) {alert('Error: Cannot divide by zero'); return;}
+
     console.log(expression[0] / expression[1]);
     return;
 };
 
-function update_display() {
+// function update_display(num_to_append) {
+//     let current = display_value;
+//      display_value(num_to_append);
+// }
 
+function display_answer(result) {
+    display.innerText = result;
 }
 
 function evaluate_expression() {
@@ -67,8 +95,6 @@ function evaluate_expression() {
         case '/': div(); clear_arrays(); return;
     };
 }; 
-
-generate_buttons();
 
 function display_num_arr() {
     for(let numbers in expression) {
@@ -87,15 +113,6 @@ function clear_arrays() {
     operator_arr.splice(0, operator_arr.length);
     expression.splice(0, expression.length);
 }
-//on number press, add to array
-//on operator, push operator symbol to operator stack
 
-
-//number press -> append to string
-    //on operator press -> turn the string into an integer and add to array
-    //push operator to stack and wait
-    //press next number -> append to string until = is pressed
-//when = is pressed -> call function passing in array and operator
-    //if operator == +
-        //add (array)
-    //etc for each operator
+generate_buttons();
+start_display();

@@ -13,7 +13,9 @@
     <div id="calculator-body">
         <div id="screen"><p id="display-value"></p></div>
         <div id="buttons">
-            <div id="numbers"></div>
+            <div id="numbers">
+            </div> 
+            <button id="clear" onclick="clear_arrays(), update_display()">Clear</button>
             <div id="operators">
                 <button id="add" onclick="push_op('+')">+</button>
                 <button id="sub" onclick="push_op('-')">-</button>
